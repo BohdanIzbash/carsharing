@@ -20,9 +20,9 @@ const SearchManufacturer = ({
             .includes(query.toLowerCase().replace(/\s+/g, ""))
         );
   return (
-    <div className="searc-manufacturer">
+    <div className="searc-manufacturer w-full">
       <Combobox value={manufacturer} onChange={setManufacturer}>
-        <div className="relative w-full">
+        <div className="search-manufacturer__w ">
           <Combobox.Button className="absolute top-[14px]">
             <Image
               src="/car-logo.svg"
