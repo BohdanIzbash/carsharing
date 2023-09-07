@@ -2,8 +2,9 @@ import Image from "next/image";
 import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
 import { fetchCars } from "@/utils";
 import { fuels, yearsOfProduction } from "@/constants";
+import { HomeProps } from "@/types";
 
-export default async function Home({ searchParams }) {
+export default async function Home({ searchParams }: HomeProps) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2022,
@@ -36,7 +37,7 @@ export default async function Home({ searchParams }) {
               ))}
             </div>
             <ShowMore
-              pageNumber={(searchParams.pageNumber || 10) / 10}
+              pageNumber={(searchParams.limit || 10) / 10}
               isNext={(searchParams.limit || 10) > allCars.length}
             />
           </section>
